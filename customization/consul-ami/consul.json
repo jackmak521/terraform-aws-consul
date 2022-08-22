@@ -52,6 +52,8 @@
     "region": "{{user `aws_region`}}",
     "associate_public_ip_address": true,
     "type": "amazon-ebs",
+    "vpc_id": "vpc-013fde103211f6c05",
+    "subnet_id": "subnet-050cc5e7f3fc2e7d7",
     "source_ami_filter": {
       "filters": {
         "virtualization-type": "hvm",

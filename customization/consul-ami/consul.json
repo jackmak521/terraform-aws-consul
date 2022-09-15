@@ -88,6 +88,18 @@
     "ssh_username": "ec2-user"
   }],
   "provisioners": [{
+    "type": "file",
+    "source": "{{template_dir}}/tls/ca.crt.pem}}",
+    "destination": "/tmp/ca.crt.pem"
+  },{
+    "type": "file",
+    "source": "{{template_dir}}/tls/consul.crt.pem}}",
+    "destination": "/tmp/consul.crt.pem"
+  },{
+    "type": "file",
+    "source": "{{template_dir}}/tls/consul.key.pem}}",
+    "destination": "/tmp/consul.key.pem"
+  },{
     "type": "shell",
     "inline": ["mkdir -p /tmp/terraform-aws-consul/modules"]
   },{
@@ -99,7 +111,7 @@
     "type": "shell",
     "inline": [
       "if test -n \"{{user `download_url`}}\"; then",
-      " /tmp/terraform-aws-consul/modules/install-consul/install-consul --download-url {{user `download_url`}};",
+      " /tmp/terraform-aws-consul/modules/install-consul/install-consul --download-url {{user `download_url`}} --ca-file-path /tmp/ca.crt.pem --cert-file-path /tmp/consul.crt.pem --key-file-path /tmp/consul.key.pem;",
       "else",
       " /tmp/terraform-aws-consul/modules/install-consul/install-consul --version {{user `consul_version`}};",
       "fi"

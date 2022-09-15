@@ -89,15 +89,15 @@
   }],
   "provisioners": [{
     "type": "file",
-    "source": "{{template_dir}}/tls/ca.crt.pem}}",
+    "source": "{{template_dir}}/tls/ca.crt.pem",
     "destination": "/tmp/ca.crt.pem"
   },{
     "type": "file",
-    "source": "{{template_dir}}/tls/consul.crt.pem}}",
+    "source": "{{template_dir}}/tls/consul.crt.pem",
     "destination": "/tmp/consul.crt.pem"
   },{
     "type": "file",
-    "source": "{{template_dir}}/tls/consul.key.pem}}",
+    "source": "{{template_dir}}/tls/consul.key.pem",
     "destination": "/tmp/consul.key.pem"
   },{
     "type": "shell",
